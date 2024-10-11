@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Planetas</title>
+</head>
+
+<body>
+
+    <h1>Verificação de Planetas</h1>
+
+    <button onclick="verificarPlaneta()">Verificar Planeta</button>
+
+    <p id="resultado"></p> <!-- Onde será exibido o resultado -->
+
+    <script>
+
+        function verificarPlaneta() {
+            // Array de planetas
+            const planetas = ["Terra", "Marte", "Plutão", "Vênus", "Júpiter", "Saturno"];
+            // Solicita ao usuário para digitar o nome de um planeta
+            const planetaInformado = prompt("Digite o nome de um planeta:");
+
+            // Verifica se o planeta informado está na array
+            if (planetas.includes(planetaInformado)) {
+                document.getElementById("resultado").innerHTML = `${planetaInformado} está na lista de planetas.`;
+            } else {
+                document.getElementById("resultado").innerHTML = `${planetaInformado} não está na lista de planetas.`;
+            }
+        }
+
+    </script>
+
+    <!--Crie uma array de planetas que inclua "Terra", "Marte", "Plutão", "Vênus", "Júpiter", "Saturno"  e, 
+    em seguida, peça ao usuário para digitar o nome de um planeta. 
+
+    Verifique se o planeta que o usuário informou está na array e informe ao usuário.-->
+</body>
+
+</html>

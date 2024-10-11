@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras de Frutas</title>
+</head>
+
+<body>
+
+    <h1>Lista de Compras de Frutas</h1>
+
+    <p id="listaFrutas"></p> <!-- Onde será exibida a lista de frutas -->
+
+    <button onclick="removerFruta()">Remover Fruta</button>
+
+    <script>
+
+        // Array de frutas
+        let frutas = ["Maçã", "Banana", "Laranja", "Uva", "Pera", "Abacaxi"];
+
+        // Exibe a lista inicial de frutas
+        document.getElementById("listaFrutas").innerHTML =
+            "Lista de frutas disponíveis: " + frutas.join(", ");
+
+        function removerFruta() {
+            // Verifica se o array ainda possui frutas
+            if (frutas.length === 0) {
+                alert("Lista de compras finalizada.");
+                return; // Encerra a função se não houver mais frutas
+            }
+
+            // Solicita ao usuário que digite o nome de uma fruta
+            let frutaInformada = prompt("Digite o nome de uma fruta para remover:");
+
+            // Converte a fruta informada para a primeira letra maiúscula para facilitar a comparação
+            frutaInformada = frutaInformada.charAt(0).toUpperCase() + frutaInformada.slice(1).toLowerCase();
+
+            // Verifica se a fruta está na lista
+            const index = frutas.indexOf(frutaInformada);
+
+            if (index !== -1) {
+                frutas.splice(index, 1); // Remove a fruta do array
+                alert("Fruta foi retirada da lista.");
+            } else {
+                alert("Fruta indisponível no nosso mercado.");
+            }
+
+            // Atualiza a lista de frutas exibida
+            document.getElementById("listaFrutas").innerHTML =
+                "Lista de frutas disponíveis: " + frutas.join(", ");
+
+            // Chama a função novamente para permitir que o usuário remova outra fruta
+            removerFruta();
+        }
+
+    </script>
+
+    <!--Vamos criar uma lista de compras. 
+
+    Crie uma array de frutas, exiba-a ao usuário e, em seguida, peça ao usuário para digitar o nome de uma das frutas.
+
+    Caso a fruta esteja no array, remova-a e exiba a mensagem "Fruta foi retirada da lista". 
+
+    Peça novamente para o usuário digitar o nome de uma fruta para ser removida. 
+
+    Sempre que o usuário procurar por uma fruta que não está no array exiba a mensagem "Fruta indisponível no nosso mercado". 
+
+    Quando o array não possuir mais itens dentro de si, escreva "Lista de compras finalizada".-->
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Estudantes</title>
+</head>
+
+<body>
+
+    <h1>Cadastro de Estudantes</h1>
+
+    <button onclick="cadastrarEstudantes()">Cadastrar Estudantes</button>
+
+    <p id="resultado"></p> <!-- Onde será exibido o resultado -->
+
+    <script>
+
+        function cadastrarEstudantes() {
+            let estudantes = []; // Array para armazenar os nomes dos estudantes
+            let nome; // Variável para armazenar o nome do estudante
+
+            // Laço para cadastrar estudantes até o usuário digitar "PARE"
+            while (true) {
+                nome = prompt("Informe o nome do estudante (ou digite 'PARE' para encerrar):");
+
+                // Verifica se o usuário digitou "PARE"
+                if (nome.toUpperCase() === "PARE") {
+                    break; // Encerra o laço
+                }
+
+                // Adiciona o nome ao array de estudantes
+                estudantes.push(nome);
+            }
+
+            // Exibe a quantidade de estudantes cadastrados e a lista deles
+            document.getElementById("resultado").innerHTML =
+                `Quantidade de estudantes cadastrados: ${estudantes.length}<br>` +
+                `Lista de estudantes:<br>` +
+                estudantes.join("<br>"); // Formata a lista para exibição
+        }
+
+    </script>
+
+    <!--Crie um programa onde o usuário possa cadastrar estudantes sem limites, e, em seguida, 
+    Se o usuário digitar "PARE" o programa deve exibir a quantidade de estudantes cadastrados e a lista com cada um deles.-->
+
+</body>
+
+</html>
